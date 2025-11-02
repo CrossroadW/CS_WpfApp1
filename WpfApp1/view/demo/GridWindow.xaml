@@ -1,0 +1,56 @@
+﻿<Window
+    x:Class="WpfApp1.view.grid.GridWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.view.grid"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="GridWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ListBox ItemsSource="{Binding People}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button
+                Name="btn"
+                Click="Button_Click"
+                Content="hello world"
+                FontSize="20"
+                Foreground="Green">
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Blue">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+            </Button>
+            <Button Content="hello world" FontSize="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Margin="3"
+                            Padding="8"
+                            Background="LightBlue"
+                            CornerRadius="12">
+                            <!--  ContentPresenter 显示 Content 属性的内容  -->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

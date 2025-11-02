@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WpfApp1.view.usercontrol.ClearableText"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.view.usercontrol"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="150">
+    <Grid Background="White">
+        <TextBlock x:Name="tbPlaceHolder" FontSize="16" FontWeight="Light" Text="{Binding PlaceHolder}" Foreground="DarkGray" 
+        VerticalAlignment="Center" Margin="5,0,0,0" 
+        />
+        <TextBox TextChanged="TextInput_TextChanged" 
+                  x:Name="textInput" 
+                 VerticalAlignment="Center" FontSize="16"
+                 FontWeight="Light" Background="Transparent"/>
+
+        <Button x:Name="btnClear" Background="Transparent" Height="40" Foreground="LightGray" Content="X" HorizontalAlignment="Right" Width="30"
+                Click="BtnClear_Click"/>
+    </Grid>
+</UserControl>

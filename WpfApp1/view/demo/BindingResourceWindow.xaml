@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="WpfApp1.view.binding.BindingResourceWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cvt="clr-namespace:convert"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.view.binding"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="BindingResourceWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <local:Person
+            x:Key="myDataSource"
+            Name="Alice"
+            Birthdate="2000-01-01" />
+
+        <cvt:BoolToTextConverter x:Key="BoolToTextConverter" />
+    </Window.Resources>
+    <Grid>
+        <StackPanel
+            Width="400"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="24"
+                Text="{Binding Path=Birthdate}" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="24"
+                Text="{Binding Path=Name}" />
+            <Button Click="Button_Click" Content="add 1" />
+            <ListBox
+                Name="listbox"
+                Width="400"
+                Margin="10"
+                ItemsSource="{Binding MyItems}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Padding="10" Text="left" />
+                            <TextBlock Padding="10" Text="{Binding Path=Name}" />
+                            <TextBlock Padding="10" Text="right" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel Margin="20">
+                <!--  Convert例子  -->
+                <CheckBox x:Name="chk" Content="开关" />
+
+                <TextBlock FontSize="20" Text="{Binding IsChecked, ElementName=chk, Converter={StaticResource BoolToTextConverter}}" />
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

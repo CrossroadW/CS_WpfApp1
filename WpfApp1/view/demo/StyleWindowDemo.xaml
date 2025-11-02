@@ -1,0 +1,40 @@
+﻿<Window
+    x:Class="WpfApp1.view.demo.StyleWindowDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.view.demo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="StyleWindowDemo"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance Type=local:PersonViewModel}"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="btnBase" TargetType="Button">
+            <Setter Property="Background" Value="Gray" />
+            <Setter Property="Foreground" Value="LightGreen" />
+            <Setter Property="Content" Value="hello style" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style
+            x:Key="helloBtnStyle"
+            BasedOn="{StaticResource btnBase}"
+            TargetType="Button">
+            <Setter Property="Background" Value="LightPink" />
+            <Setter Property="Foreground" Value="LightGreen" />
+            <Setter Property="Content" Value="hello style" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <Button Style="{StaticResource helloBtnStyle}" />
+            <Button Style="{StaticResource helloBtnStyle}" />
+            <Button Style="{StaticResource helloBtnStyle}" />
+            <Button Style="{StaticResource helloBtnStyle}" />
+            <Button Style="{StaticResource helloBtnStyle}" />
+
+        </StackPanel>
+    </Grid>
+</Window>

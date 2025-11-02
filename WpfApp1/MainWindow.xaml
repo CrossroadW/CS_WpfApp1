@@ -4,21 +4,49 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xmlns:usrControls="clr-namespace:WpfApp1.view.usercontrol"
+
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="myDataGrid" AutoGenerateColumns="False" SelectionChanged="myDataGrid_SelectionChanged">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="按钮列">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Hello1 World" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-            
-            
-        </DataGrid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <usrControls:MenuBar/>
+
+        <usrControls:ClearableText Grid.Row="1" PlaceHolder="first name"/>
+        <usrControls:ClearableText Grid.Row="2"  PlaceHolder="seconds name"/>-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0"  Orientation="Horizontal">
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"></Button>
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"></Button>
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"></Button>
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1"  Orientation="Horizontal">
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"  VerticalAlignment="Center"></Button>
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"  VerticalAlignment="Top"></Button>
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"  VerticalAlignment="Bottom"></Button>
+            <Button Margin="5,0,0,0" Width="50" Content="ggg"  VerticalAlignment="Stretch"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2"  Orientation="Vertical">
+            <Button Content="ggg"  HorizontalAlignment="Left"></Button>
+            <Button Content="ggg"  HorizontalAlignment="Center"></Button>
+            <Button Content="ggg"  HorizontalAlignment="Right"></Button>
+            <Button Content="ddd"  HorizontalAlignment="Stretch"></Button>
+        </StackPanel>
+
+
     </Grid>
 </Window>

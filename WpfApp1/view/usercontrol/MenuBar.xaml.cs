@@ -1,5 +1,8 @@
-﻿using Microsoft.Windows.Themes;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WpfApp1.view.usercontrol
 {
-    public class DummyItem
+    /// <summary>
+    /// UserControl1.xaml 的交互逻辑
+    /// </summary>
+    public partial class MenuBar : UserControl
     {
-        // 这个类什么都不用写，只是为了生成一行数据
-    }
-    public partial class MainWindow : Window
-    {
-      
-        public MainWindow()
+        public MenuBar()
         {
-         
             InitializeComponent();
-            
         }
-       
     }
 }
