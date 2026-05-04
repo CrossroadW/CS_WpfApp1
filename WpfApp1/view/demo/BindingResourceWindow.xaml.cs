@@ -68,14 +68,14 @@ namespace WpfApp1.view.binding
         private void OnPropertyChanged(string prop)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
 
-        // 示例命令（代替 Button_Click)
-        public void AddSuffix()
+        static private int times = 0;
+        public void AddSuffix() //
         {
-            Name += "1.";
-            Birthdate = DateTime.Now;
-            var p = new Person { Name = "ggg" };
+            Name = $"{times}";
+            Birthdate += TimeSpan.FromSeconds(10);
+            var p = new Person { Name = $"newline: {++times}" };
             MyItems.Add(p);
-
+            MyItems.RemoveAt(0);
         }
 
         public ObservableCollection<Person> MyItems { get; set; } = new ObservableCollection<Person>

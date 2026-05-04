@@ -15,9 +15,9 @@
             x:Key="myDataSource"
             Name="Alice"
             Birthdate="2000-01-01" />
-
         <cvt:BoolToTextConverter x:Key="BoolToTextConverter" />
     </Window.Resources>
+
     <Grid>
         <StackPanel
             Width="400"
@@ -31,7 +31,13 @@
                 HorizontalAlignment="Center"
                 FontSize="24"
                 Text="{Binding Path=Name}" />
+            <Separator
+                Height="1"
+                Margin="0,5"
+                Background="Gray" />
+
             <Button Click="Button_Click" Content="add 1" />
+            <!--  普通的list自定义显示效果并使用Command实现功能  -->
             <ListBox
                 Name="listbox"
                 Width="400"
@@ -51,7 +57,7 @@
             <StackPanel Margin="20">
                 <!--  Convert例子  -->
                 <CheckBox x:Name="chk" Content="开关" />
-
+                <!--  从Bool 转换到string  -->
                 <TextBlock FontSize="20" Text="{Binding IsChecked, ElementName=chk, Converter={StaticResource BoolToTextConverter}}" />
             </StackPanel>
         </StackPanel>

@@ -1,0 +1,73 @@
+﻿<Window
+    x:Class="WpfApp1.view.demo.ContentTemplateAndTemplateWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.view.demo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ContentTemplateAndTemplateWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+
+        <!--  控件模板 ControlTemplate  -->
+        <Style x:Key="FancyButtonStyle" TargetType="Button">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel Margin="5" Orientation="Horizontal">
+                            <Ellipse
+                                Width="10"
+                                Height="10"
+                                Margin="0,0,5,0"
+                                Fill="DodgerBlue" />
+                            <TextBlock FontWeight="Bold" Text="{Binding}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Padding="6"
+                            Background="LightYellow"
+                            BorderBrush="Orange"
+                            BorderThickness="2"
+                            CornerRadius="8">
+                            <!--  ContentPresenter 必须存在才能让 ContentTemplate 生效  -->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <!--  下面这个按钮同时使用两个模板  -->
+        <StackPanel>
+            <Button Content="点我看看效果" Style="{StaticResource FancyButtonStyle}" />
+            <Button
+                Width="100"
+                Background="Orange"
+                Content="Hi">
+
+                <Button.Template>
+                    <ControlTemplate TargetType="ContentControl">
+                        <Grid>
+                            <Ellipse
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Width}"
+                                Fill="{TemplateBinding Background}" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+        </StackPanel>
+    </Grid>
+
+</Window>
